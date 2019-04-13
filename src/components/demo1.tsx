@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Input, List} from 'antd';
+import {Button, Col, Input, List, Row} from 'antd';
 
 class Demo1 extends React.Component {
     render() {
@@ -12,16 +12,25 @@ class Demo1 extends React.Component {
         ];
         return (
             <div className='todo'>
-                <div className='todo-input'>
-                    <Input className='todo-info' placeholder='todo_info'/>
-                    <Button type='primary' className='todo-submit'>提交</Button>
-                </div>
-                <List
-                    className='todo-list'
-                    bordered
-                    dataSource={data}
-                    renderItem={item => (<List.Item>{item}</List.Item>)}
-                   />
+                <Row type="flex" justify="center">
+                    <Col offset={8} span={8}>
+                        <Input className='todo-info' placeholder='todo_info'/>
+                        <Button type='primary'>提交</Button>
+                    </Col>
+                    <Col span={8}></Col>
+                </Row>
+                <Row type="flex" justify="center">
+                    <Col offset={8} span={8}>
+                        <List
+                            className='todo-list'
+                            bordered
+                            dataSource={data}
+                            renderItem={item => (<List.Item>{item}</List.Item>)}
+                        />
+                    </Col>
+                    <Col span={8}></Col>
+                </Row>
+
             </div>
         );
     }

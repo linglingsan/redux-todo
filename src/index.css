@@ -1,19 +1,7 @@
 @import '~antd/dist/antd.css';
 
 .todo {
-    text-align: center;
     margin-top: 20px;
-}
-
-.todo-input {
-    position: relative;
-}
-
-.todo-submit {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    margin-left: 164px;
 }
 
 .todo-info {
@@ -21,6 +9,6 @@
     margin-right: 10px;
 }
 .todo-list {
-    margin: 10px auto;
-    width: 306px;
+    margin-top: 10px;
+    width: 300px;
 }
