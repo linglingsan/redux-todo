@@ -13,14 +13,13 @@ class Demo1 extends React.Component {
         return (
             <div className='todo'>
                 <Row type="flex" justify="center">
-                    <Col offset={8} span={8}>
+                    <Col offset={8} span={16}>
                         <Input className='todo-info' placeholder='todo_info'/>
                         <Button type='primary'>提交</Button>
                     </Col>
-                    <Col span={8}></Col>
                 </Row>
                 <Row type="flex" justify="center">
-                    <Col offset={8} span={8}>
+                    <Col offset={8} span={16}>
                         <List
                             className='todo-list'
                             bordered
@@ -28,7 +27,6 @@ class Demo1 extends React.Component {
                             renderItem={item => (<List.Item>{item}</List.Item>)}
                         />
                     </Col>
-                    <Col span={8}></Col>
                 </Row>
 
             </div>

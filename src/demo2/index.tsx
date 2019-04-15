@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import {Button, Col, Input, List, Row} from 'antd';
 
 import store from './store';
@@ -7,21 +7,30 @@ class Demo2 extends React.Component{
     constructor(props: any) {
         super(props);
         this.state = store.getState();
+        // store.subscribe(() => this.handleInputChage)
     }
+
+    handleInputChage(e: any): void {
+        const action = {
+            type: 'change_input_value',
+            value: e.target.value
+        }
+        store.dispatch(action)
+    }
+
     render() {
         // @ts-ignore
         const {value, list} = this.state;
         return (
             <div className='todo'>
                 <Row type="flex" justify="center">
-                    <Col offset={8} span={8}>
-                        <Input className='todo-info'value={value} placeholder='todo_info'/>
+                    <Col offset={8} span={16}>
+                        <Input className='todo-info'value={value} onChange={this.handleInputChage} placeholder='todo_info'/>
                         <Button type='primary'>提交</Button>
                     </Col>
-                    <Col span={8}></Col>
                 </Row>
                 <Row type="flex" justify="center">
-                    <Col offset={8} span={8}>
+                    <Col offset={8} span={16}>
                         <List
                             className='todo-list'
                             bordered
@@ -29,7 +38,6 @@ class Demo2 extends React.Component{
                             renderItem={item => (<List.Item>{item}</List.Item>)}
                         />
                     </Col>
-                    <Col span={8}></Col>
                 </Row>
 
             </div>
