@@ -1,21 +1,35 @@
-import React, {ChangeEvent} from 'react';
+import React from 'react';
 import {Button, Col, Input, List, Row} from 'antd';
 
 import store from './store';
-
-class Demo2 extends React.Component{
+import {paramsType} from './paramsType';
+class Demo2 extends React.Component {
     constructor(props: any) {
         super(props);
         this.state = store.getState();
-        // store.subscribe(() => this.handleInputChage)
+        store.subscribe(this.handleStoreChage)
     }
 
-    handleInputChage(e: any): void {
+    handleInputChage = (e: any) => {
         const action = {
             type: 'change_input_value',
             value: e.target.value
         }
         store.dispatch(action)
+    }
+
+    handleBtnClick = () => {
+        // @ts-ignore
+        const {value} = this.state;
+        const action = {
+            type: 'add_todo_item',
+            value
+        }
+        store.dispatch(action)
+    }
+
+    handleStoreChage =() => {
+        this.setState(store.getState());
     }
 
     render() {
@@ -25,8 +39,9 @@ class Demo2 extends React.Component{
             <div className='todo'>
                 <Row type="flex" justify="center">
                     <Col offset={8} span={16}>
-                        <Input className='todo-info'value={value} onChange={this.handleInputChage} placeholder='todo_info'/>
-                        <Button type='primary'>提交</Button>
+                        <Input className='todo-info' value={value} onChange={this.handleInputChage}
+                               placeholder='todo_info'/>
+                        <Button type='primary' onClick={this.handleBtnClick}>提交</Button>
                     </Col>
                 </Row>
                 <Row type="flex" justify="center">
