@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import Demo from './demo2';
+import Demo from './demo3';
 
 class TodoList extends Component {
     render() {
