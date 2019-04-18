@@ -42,6 +42,14 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ### demo2
 - `yarn add redux`
 - 创建redux中的store
+- 添加
+### demo3
+- 删除
+### demo4
+- actionType拆分
+### demo5
+- actionCreator
+
 ## Learn More
 
 You can learn more in the [Create React TodoList documentation](https://facebook.github.io/create-react-app/docs/getting-started).
