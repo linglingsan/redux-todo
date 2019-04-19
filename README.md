@@ -49,6 +49,9 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 - actionType拆分
 ### demo5
 - actionCreator
+### demo6
+- UI组件
+- 将UI组件转换为无状态组件
 
 ## Learn More
 
