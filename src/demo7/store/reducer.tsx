@@ -1,4 +1,4 @@
-import {CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM} from './actionTypes'
+import {CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM, INIT_LIST_ACTION} from './actionTypes'
 import {paramsType} from '../paramsType';
 
 const defaultState: paramsType = {
@@ -21,6 +21,10 @@ export default (state = defaultState, acition: any): paramsType => {
             const deleteState: any = Object.assign({}, state);
             deleteState.list.splice(acition.index, 1);
             return deleteState
+            break;
+        case INIT_LIST_ACTION:
+            const initState: any = Object.assign({}, state);
+            return Object.assign(initState, acition.data)
             break;
         default:
     }

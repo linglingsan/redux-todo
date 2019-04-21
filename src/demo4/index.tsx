@@ -6,7 +6,7 @@ import {CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM} from './store/actio
 
 import {paramsType} from './paramsType';
 
-class Demo2 extends React.Component {
+class Demo4 extends React.Component {
     constructor(props: any) {
         super(props);
         this.state = store.getState();
@@ -71,4 +71,4 @@ class Demo2 extends React.Component {
     }
 }
 
-export default Demo2;
+export default Demo4;

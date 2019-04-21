@@ -4,7 +4,7 @@ import {Button, Col, Input, List, Row} from 'antd';
 import store from './store';
 import {getInputChangeAction, getAddItemAction, getDeleteItemAction} from './store/actionCreators';
 
-class Demo2 extends React.Component {
+class Demo5 extends React.Component {
     constructor(props: any) {
         super(props);
         this.state = store.getState();
@@ -60,4 +60,4 @@ class Demo2 extends React.Component {
     }
 }
 
-export default Demo2;
+export default Demo5;

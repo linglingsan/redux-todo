@@ -1,14 +1,24 @@
 import React from 'react';
+import axios from 'axios';
 import TodoListUI from './TodoListUI';
-
 import store from './store';
-import {getInputChangeAction, getAddItemAction, getDeleteItemAction} from './store/actionCreators';
+import {getInputChangeAction, getAddItemAction, getDeleteItemAction, initListAction} from './store/actionCreators';
 
-class Demo2 extends React.Component {
+class Demo7 extends React.Component {
     constructor(props: any) {
         super(props);
         this.state = store.getState();
         store.subscribe(this.handleStoreChage)
+    }
+    // src/demo7/list.json
+    componentDidMount(): void {
+        axios.get('/list.json')
+            .then(res => {
+                const {data} = res;
+                const action = initListAction(data);
+                console.log(action);
+                store.dispatch(action)
+            })
     }
 
     handleInputChage = (e: any) => {
@@ -47,4 +57,4 @@ class Demo2 extends React.Component {
     }
 }
 
-export default Demo2;
+export default Demo7;

@@ -4,7 +4,7 @@ import TodoListUI from './TodoListUI';
 import store from './store';
 import {getInputChangeAction, getAddItemAction, getDeleteItemAction} from './store/actionCreators';
 
-class Demo2 extends React.Component {
+class Demo6 extends React.Component {
     constructor(props: any) {
         super(props);
         this.state = store.getState();
@@ -47,4 +47,4 @@ class Demo2 extends React.Component {
     }
 }
 
-export default Demo2;
+export default Demo6;
