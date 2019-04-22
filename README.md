@@ -52,6 +52,10 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 ### demo6
 - UI组件
 - 将UI组件转换为无状态组件
+### demo7
+- 异步数据
+### demo8
+- redex-thunk
 
 ## Learn More
 
