@@ -2,8 +2,8 @@ import {CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM, INIT_LIST_ACTION} f
 import {paramsType} from '../paramsType';
 
 const defaultState: paramsType = {
-    value: '11',
-    list: [1,2]
+    value: '',
+    list: []
 };
 
 export default (state = defaultState, acition: any): paramsType => {
@@ -13,7 +13,7 @@ export default (state = defaultState, acition: any): paramsType => {
             break;
         case ADD_TODO_ITEM:
             const newState:any = Object.assign({}, state);
-            newState.list.push(acition.value);
+            newState.list.push(newState.value);
             newState.value = '';
             return newState
             break;

@@ -6,9 +6,8 @@ export const getInputChangeAction = (value: string) => ({
     value
 })
 
-export const getAddItemAction = (value: string) => ({
-    type: ADD_TODO_ITEM,
-    value
+export const getAddItemAction = () => ({
+    type: ADD_TODO_ITEM
 })
 
 export const getDeleteItemAction = (index: number) => ({

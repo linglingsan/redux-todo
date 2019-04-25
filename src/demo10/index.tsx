@@ -2,16 +2,10 @@ import React from 'react';
 import TodoListUI from './TodoListUI';
 import store from './store';
 import {getInputChangeAction, getAddItemAction, getDeleteItemAction, getTodoList} from './store/actionCreators';
-import { connect} from 'react-redux';
+import {connect} from 'react-redux';
 
 class Demo10 extends React.Component {
-    constructor(props: any) {
-        super(props);
-        // this.state = store.getState();
-        // store.subscribe(this.handleStoreChage)
-    }
-
-    componentDidMount(): void {
+    componentWillMount(): void {
         const action = getTodoList();
         store.dispatch(action);
     }
@@ -19,6 +13,7 @@ class Demo10 extends React.Component {
     render() {
         // @ts-ignore
         const {value, list, handleInputChage, handleBtnClick, handleItemClick} = this.props;
+
         return (
             <TodoListUI
                 value={value}
@@ -42,14 +37,13 @@ const mapDispatchToProps = (dispatch: any) => {
     return {
         handleInputChage(e: any) {
             const action = getInputChangeAction(e.target.value.trim())
-           dispatch(action)
-        },
-        handleBtnClick() {
-            // @ts-ignore
-            const {value} = this.state;
-            const action = getAddItemAction(value);
             dispatch(action)
         },
+        handleBtnClick() {
+            const action = getAddItemAction();
+            dispatch(action)
+        },
+        //  删除渲染异常, 待处理
         handleItemClick(index: number) {
             const action = getDeleteItemAction(index);
             dispatch(action);

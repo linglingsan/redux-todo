@@ -30,7 +30,7 @@ const TodoListUI = (props: Props) => {
                         bordered
                         dataSource={props.list}
                         renderItem={(item, index) => (<List.Item onClick={() => {
-                            props.handleItemClick(index)
+                           props.handleItemClick(index)
                         }}>{item}</List.Item>)}
                     />
                 </Col>
@@ -40,33 +40,5 @@ const TodoListUI = (props: Props) => {
     );
 }
 
-/*class TodoListUI extends Component<Props> {
-    render() {
-        return (
-            <div className='todo'>
-                <Row type="flex" justify="center">
-                    <Col offset={8} span={16}>
-                        <Input className='todo-info' value={this.props.value} onChange={this.props.handleInputChage}
-                               placeholder='todo_info'/>
-                        <Button type='primary' onClick={this.props.handleBtnClick}>提交</Button>
-                    </Col>
-                </Row>
-                <Row type="flex" justify="center">
-                    <Col offset={8} span={16}>
-                        <List
-                            className='todo-list'
-                            bordered
-                            dataSource={this.props.list}
-                            renderItem={(item, index) => (<List.Item onClick={() => {
-                                this.props.handleItemClick(index)
-                            }}>{item}</List.Item>)}
-                        />
-                    </Col>
-                </Row>
-
-            </div>
-        );
-    }
-}*/
 
 export default TodoListUI
