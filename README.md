@@ -58,6 +58,8 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 - redex-thunk
 ### demo9
 - redux-saga
+### demo10
+- react-redux
 
 ## Learn More
 

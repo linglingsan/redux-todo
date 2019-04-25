@@ -2,59 +2,59 @@ import React from 'react';
 import TodoListUI from './TodoListUI';
 import store from './store';
 import {getInputChangeAction, getAddItemAction, getDeleteItemAction, getTodoList} from './store/actionCreators';
+import { connect} from 'react-redux';
 
 class Demo10 extends React.Component {
     constructor(props: any) {
         super(props);
-        this.state = store.getState();
-        store.subscribe(this.handleStoreChage)
+        // this.state = store.getState();
+        // store.subscribe(this.handleStoreChage)
     }
 
     componentDidMount(): void {
         const action = getTodoList();
         store.dispatch(action);
-        /* axios.get('/list.json')
-             .then(res => {
-                 const {data} = res;
-                 const action = initListAction(data);
-                 store.dispatch(action)
-             })*/
-    }
-
-    handleInputChage = (e: any) => {
-        const action = getInputChangeAction(e.target.value.trim())
-        store.dispatch(action)
-    }
-
-    handleBtnClick = () => {
-        // @ts-ignore
-        const {value} = this.state;
-        const action = getAddItemAction(value);
-        store.dispatch(action)
-    }
-
-    handleItemClick = (index: number) => {
-        const action = getDeleteItemAction(index);
-        store.dispatch(action);
-    }
-
-    handleStoreChage = () => {
-        this.setState(store.getState());
     }
 
     render() {
         // @ts-ignore
-        const {value, list} = this.state;
+        const {value, list, handleInputChage, handleBtnClick, handleItemClick} = this.props;
         return (
             <TodoListUI
                 value={value}
                 list={list}
-                handleInputChage={this.handleInputChage}
-                handleBtnClick={this.handleBtnClick}
-                handleItemClick={this.handleItemClick}
+                handleInputChage={handleInputChage}
+                handleBtnClick={handleBtnClick}
+                handleItemClick={handleItemClick}
             />
         );
     }
 }
 
-export default Demo10;
+const mapStateToProps = (state: any) => {
+    return {
+        value: state.value,
+        list: state.list
+    }
+}
+
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        handleInputChage(e: any) {
+            const action = getInputChangeAction(e.target.value.trim())
+           dispatch(action)
+        },
+        handleBtnClick() {
+            // @ts-ignore
+            const {value} = this.state;
+            const action = getAddItemAction(value);
+            dispatch(action)
+        },
+        handleItemClick(index: number) {
+            const action = getDeleteItemAction(index);
+            dispatch(action);
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Demo10);
