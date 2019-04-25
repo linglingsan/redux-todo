@@ -19,7 +19,9 @@ export default (state = defaultState, acition: any): paramsType => {
             break;
         case DELETE_TODO_ITEM:
             const deleteState: any = Object.assign({}, state);
-            deleteState.list.splice(acition.index, 1);
+            deleteState.list = deleteState.list.filter((item: string,  index:number) => index != acition.index)
+
+            // deleteState.list.splice(acition.index, 1);
             return deleteState
             break;
         case INIT_LIST_ACTION:
